@@ -1,11 +1,12 @@
 import { useState } from "react";
 import './App.css'
+import Post from './components/Posts'
 export default function App(){
 
 
   return(
   <>
-    <h2>First steps</h2>
+    <Post author="Aashutosh-kc" text="My first Post" likes={3}  />
   </>
   )
 }
