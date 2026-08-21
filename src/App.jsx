@@ -16,7 +16,7 @@ export default function App(){
       text: postText,
       likes: 0
     }
-    setPosts([...posts,newPost])
+    setPosts([newPost,...posts])
     setPostText('')
   }
 
