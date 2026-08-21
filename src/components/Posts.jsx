@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function Post({key,author,text,likes}){
+export default function Post({author,text,likes}){
 
     const [likeCount,setLikeCount] = useState(likes);
 
