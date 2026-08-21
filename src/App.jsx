@@ -10,6 +10,7 @@ export default function App(){
   const [postText,setPostText] = useState('');
 
   function handleAdd(){
+    if (postText === '') return;
     const newPost={
       id: Date.now(),
       author: "Aashutosh KC",
