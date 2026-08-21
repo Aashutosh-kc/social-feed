@@ -23,7 +23,8 @@ export default function App(){
   return(
   <>
     <div className="user-input">
-      <input type="text" value={postText} placeholder="What's new ?"onChange={(e)=>setPostText(e.target.value)} />
+      <input type="text" value={postText} placeholder="What's new ?" 
+      onChange={(e)=>setPostText(e.target.value)} onKeyDown={(e) => {e.key==="Enter" && handleAdd()}}/>
       <button onClick={handleAdd}>Add</button>
     </div>
     {posts.map((n) =>(<Post key={n.id} author={n.author} text={n.text} likes={n.likes}  />))}
