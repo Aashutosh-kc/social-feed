@@ -23,7 +23,7 @@ export default function Post({id,author,text,likes,addComment,comments,deletePos
                 }
             }} 
             onChange={(e) => setNewInputComment(e.target.value)}/>
-            {comments.map((comment,index) =``> (<li key={index} >{comment}</li>))}
+            {comments.map((comment,index) => (<li key={index} >{comment}</li>))}
             <button onClick={()=>{deletePost(id)}}>Delete</button>
         </>
     )

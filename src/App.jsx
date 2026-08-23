@@ -38,7 +38,10 @@ export default function App(){
       onChange={(e)=>setPostText(e.target.value)} onKeyDown={(e) => {e.key==="Enter" && handleAdd()}}/>
       <button onClick={handleAdd}>Add</button>
     </div>
-    {posts.map((n) =>(<Post key={n.id} author={n.author} id={n.id} text={n.text} likes={n.likes} addComment={addComment} comments={n.comments} deletePost={deletePost}/>))}
+    {posts.length===0?
+    <p>No posts yet - write something</p>:
+    (posts.map((n) =>(<Post key={n.id} author={n.author} id={n.id} text={n.text} likes={n.likes} addComment={addComment} comments={n.comments} deletePost={deletePost}/>)))
+  }
   </>
   )
 }
