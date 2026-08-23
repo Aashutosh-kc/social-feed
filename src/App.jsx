@@ -22,6 +22,10 @@ export default function App(){
     setPostText('')
   }
 
+  function deletePost(id){
+    setPosts((prev) => prev.filter((post) => post.id !== id))
+  }
+
   function addComment(id,newValue){
     setPosts((n)=>n.map((post) =>{ return(post.id===id ? {...post,comments: [...post.comments,newValue]} : post ) }))
   }
@@ -34,7 +38,7 @@ export default function App(){
       onChange={(e)=>setPostText(e.target.value)} onKeyDown={(e) => {e.key==="Enter" && handleAdd()}}/>
       <button onClick={handleAdd}>Add</button>
     </div>
-    {posts.map((n) =>(<Post key={n.id} author={n.author} id={n.id} text={n.text} likes={n.likes} addComment={addComment} comments={n.comments}/>))}
+    {posts.map((n) =>(<Post key={n.id} author={n.author} id={n.id} text={n.text} likes={n.likes} addComment={addComment} comments={n.comments} deletePost={deletePost}/>))}
   </>
   )
 }

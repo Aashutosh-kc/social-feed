@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function Post({id,author,text,likes,addComment,comments}){
+export default function Post({id,author,text,likes,addComment,comments,deletePost}){
     const [newInputComment,setNewInputComment] = useState('');
     const [likeCount,setLikeCount] = useState(likes);
 
@@ -23,7 +23,8 @@ export default function Post({id,author,text,likes,addComment,comments}){
                 }
             }} 
             onChange={(e) => setNewInputComment(e.target.value)}/>
-            {comments.map((comment,index) => (<li key={index} >{comment}</li>))}
+            {comments.map((comment,index) =``> (<li key={index} >{comment}</li>))}
+            <button onClick={()=>{deletePost(id)}}>Delete</button>
         </>
     )
 }
