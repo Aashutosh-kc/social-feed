@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import './App.css'
 import Post from './components/Posts'
 
 export default function App(){
 
-  const [posts,setPosts] = useState([{ id: 1, author: "Aashutosh", text: "My first post", likes: 4,comments: [] },
-    { id: 2, author: "Someone Else", text: "Another post", likes: 2 ,comments: []}]);
- 
+  const [posts,setPosts] = useState(()=>{
+    const saved = localStorage.getItem('posts');
+    return saved? JSON.parse(saved) :  [{ id: 1, author: "Aashutosh", text: "My first post", likes: 4,comments: [] },
+    { id: 2, author: "Someone Else", text: "Another post", likes: 2 ,comments: []}]
+  });
+
   const [postText,setPostText] = useState('');
 
   function handleAdd(){
@@ -21,6 +24,10 @@ export default function App(){
     setPosts([newPost,...posts])
     setPostText('')
   }
+
+  useEffect(()=>{
+  localStorage.setItem('posts',JSON.stringify(posts));
+  },[posts])
 
   function deletePost(id){
     setPosts((prev) => prev.filter((post) => post.id !== id))
