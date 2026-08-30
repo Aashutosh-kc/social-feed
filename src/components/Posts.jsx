@@ -1,19 +1,16 @@
 import { useState } from "react"
 
-export default function Post({id,author,text,likes,addComment,comments,deletePost}){
-    const [newInputComment,setNewInputComment] = useState('');
-    const [likeCount,setLikeCount] = useState(likes);
+export default function Post({id,author,text,likes,likePost,addComment,comments,deletePost}){
 
-    function handleLikeCount(){
-        setLikeCount((prev) => prev +1)
-    }
+    const [newInputComment,setNewInputComment] = useState('');
+
 
     return(
         <>
             <h2>{author}</h2>
             <p>{text}</p>
-            <div>Likes: {likeCount}</div>
-            <button onClick={handleLikeCount}>Like</button>
+            <div>Likes: {likes}</div>
+            <button onClick={()=>likePost(id)}>Like</button>
             <input type="text" placeholder="Add a comment" value={newInputComment} 
             onKeyDown={(e)=>{
                 if(e.key==="Enter"){ 

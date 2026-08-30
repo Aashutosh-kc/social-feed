@@ -29,6 +29,12 @@ export default function App(){
   localStorage.setItem('posts',JSON.stringify(posts));
   },[posts])
 
+  function likePost(id){
+    setPosts((posts) => posts.map((post)=> {
+      return id===post.id? {...post,likes: post.likes + 1} : post;
+    }))
+  }
+
   function deletePost(id){
     setPosts((prev) => prev.filter((post) => post.id !== id))
   }
@@ -47,7 +53,7 @@ export default function App(){
     </div>
     {posts.length===0?
     <p>No posts yet - write something</p>:
-    (posts.map((n) =>(<Post key={n.id} author={n.author} id={n.id} text={n.text} likes={n.likes} addComment={addComment} comments={n.comments} deletePost={deletePost}/>)))
+    (posts.map((n) =>(<Post key={n.id} author={n.author} id={n.id} text={n.text} likes={n.likes} likePost={likePost} addComment={addComment} comments={n.comments} deletePost={deletePost}/>)))
   }
   </>
   )
