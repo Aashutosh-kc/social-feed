@@ -1,20 +1,14 @@
-# Notes
-
 ## Status
-Core feed works: add post, like, comment, delete, empty state,
-persistence via localStorage. Exams are on, paused here.
+Core feed works: add post, like (persists), comment (persists),
+delete, empty state, localStorage persistence. Post.jsx split into
+Post.jsx + CommentList.jsx.
 
-## Known issues
-- likeCount resets on refresh (only posts persist, not likes) — need
-  to lift likeCount into the posts array itself instead of local
-  state inside Post.jsx
-- Post.jsx is getting crowded (likes + comments + delete all in one
-  file) — consider splitting comments into their own component
+## Known issues / small polish left
+(none currently — clean state)
 
-## Next up (after exams)
-- Split Post.jsx: pull comments into a CommentList.jsx component
-- Fix likeCount persistence (move it into posts state, not
-  useState(likes) inside Post)
+## Next up
+- Add React Router: single post page (click a post, see it on its
+  own route)
 - After that: start backend — Express + MongoDB, replace hardcoded
   posts array with real API calls
 
