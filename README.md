@@ -56,6 +56,6 @@ http://localhost:5173/
 - [x] Delete post with filter
 - [x] Empty state when no posts
 - [x] Persist posts with useEffect + localStorage
-- [ ] Persist like counts
+- [x] Persist like counts
 - [ ] Split Post.jsx into smaller components
 - [ ] Backend integration (MERN)
