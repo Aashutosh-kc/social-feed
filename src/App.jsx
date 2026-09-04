@@ -1,6 +1,7 @@
 import { useState,useEffect } from "react";
 import './App.css'
 import Post from './components/Posts'
+import { Route,Routes } from "react-router-dom";
 
 export default function App(){
 
@@ -45,7 +46,8 @@ export default function App(){
 
 
   return(
-  <>
+  <Routes>
+    <Route path="/" element={<>
     <div className="user-input">
       <input type="text" value={postText} placeholder="What's new ?" 
       onChange={(e)=>setPostText(e.target.value)} onKeyDown={(e) => {e.key==="Enter" && handleAdd()}}/>
@@ -54,7 +56,9 @@ export default function App(){
     {posts.length===0?
     <p>No posts yet - write something</p>:
     (posts.map((n) =>(<Post key={n.id} author={n.author} id={n.id} text={n.text} likes={n.likes} likePost={likePost} addComment={addComment} comments={n.comments} deletePost={deletePost}/>)))
-  }
-  </>
+    }
+    </>} />
+    
+  </Routes>
   )
 }
