@@ -2,6 +2,7 @@ import { useState,useEffect } from "react";
 import './App.css'
 import Post from './components/Posts'
 import { Route,Routes } from "react-router-dom";
+import PostPage from "./components/PostPage";
 
 export default function App(){
 
@@ -58,7 +59,7 @@ export default function App(){
     (posts.map((n) =>(<Post key={n.id} author={n.author} id={n.id} text={n.text} likes={n.likes} likePost={likePost} addComment={addComment} comments={n.comments} deletePost={deletePost}/>)))
     }
     </>} />
-    
+    <Route path="/post/:id" element={<PostPage posts={posts}  likePost={likePost} addComment={addComment}  deletePost={deletePost}></PostPage>} />
   </Routes>
   )
 }
