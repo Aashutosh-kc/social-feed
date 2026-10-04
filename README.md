@@ -19,10 +19,9 @@ A small social feed app built to practice core React concepts — posts, likes, 
 - Delete a post
 - Empty state when no posts remain
 - Posts persist across refreshes via localStorage
+- Routing to individual posts.
 
 ## Planned Features
-- Like count persistence (currently resets on refresh)
-- Split Post component into smaller pieces (extract comments into their own component)
 - Backend integration (Express + MongoDB) — replace hardcoded/local data with a real API
 - Delete individual comments
 
